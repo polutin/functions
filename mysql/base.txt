@@ -1,4 +1,5 @@
-//Создание новой таблицы в БД
+//////////////////////////////
+// СОЗДАНИЕ НОВОЙ ТАБЛИЦЫ В БД
 
 CREATE TABLE oc_good_desription (
  id int auto_increment primary key, 
@@ -8,3 +9,47 @@ CREATE TABLE oc_good_desription (
  edate datetime
 );
 
+///////////////////////////////
+// ДОБАВЛЕНИЕ КОЛОНКИ В ТАБЛИЦУ
+
+ALTER TABLE oc_customer ADD COLUMN xxx text NULL AFTER full_company;
+
+////////////////////////////
+// ЗАПРОС НА ОБНОВЛЕНИЕ ПОЛЯ
+
+UPDATE oc_baners SET status=’0’ WHERE id=1;
+
+//////////////////////////////////
+// ВСТАВКА ДАННЫХ В ПОЛЕ ТАБЛИЦЫ БД
+
+INSERT INTO `oc_good_desription`(
+ `id`, `product_id`, `ip`, `status`, `edate`
+) VALUES (
+ ``,`$product_id`,`$ip`,`$status`,`$date`
+);
+
+/////////////////////////////////////
+// ВЫБОРКА ПО УСЛОВИЯМ ИЗ ДВУХ ТАБЛИЦ
+
+/* Есть две таблицы: 
+    files (id, news_id)
+    post (id, approve)
+
+    files (news_id) = post (id)
+
+    Нужно сделать SELECT * FROM files WHERE approve = 1 (аппрув должен браться из таблицы post)
+*/
+
+SELECT files.* FROM files, post WHERE ( post.approve = 1 AND files.news_id = post.id )
+
+//////////////////////////////////////////////////////////
+// ВЫБОРКА НЕРАВНЫХ (уникальных) ЗНАЧЕНИЙ ИЗ РАЗНЫХ ТАБЛИЦ
+
+SELECT DISTINCT `oc_product` . * 
+FROM `oc_product` , `oc_product_special_id` 
+WHERE (
+ `oc_product`.`old_price` <> '' AND 
+ `oc_product`.`product_id` = `oc_product_special_id`.`special_id`
+)
+ORDER BY `oc_product`.`class_id` , `oc_product`.`online_price` ASC 
+LIMIT 0 , 30

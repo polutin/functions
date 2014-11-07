@@ -1,0 +1,10 @@
+//Создание новой таблицы в БД
+
+CREATE TABLE oc_good_desription (
+ id int auto_increment primary key, 
+ product_id INTEGER (10), 
+ ip VARCHAR (20), 
+ status INTEGER (1), 
+ edate datetime
+);
+

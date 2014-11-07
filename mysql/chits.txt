@@ -1,0 +1,21 @@
+///////////////////////////////////
+// ПОДСЧЕТ КОЛИЧЕСТВА ОТЗЫВОВ
+// ДОБАВЛЕННЫХ ЗА СУТКИ С ОДНОГО IP
+
+$ip = $_SERVER['REMOTE_ADDR'];
+
+$date_count = date("Y-m-d");
+
+$ch_ip = mysql_fetch_array(
+  mysql_query(
+    "SELECT COUNT(*) 
+     FROM oc_good_desription 
+     WHERE ip='$ip' AND edate LIKE '%{$date_count}%';"
+  )
+);
+
+if (!empty($ch_ip)):
+
+ $count = (int)$ch_ip[0];
+
+endif;

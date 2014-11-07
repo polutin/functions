@@ -1,0 +1,9 @@
+Order deny,allow
+deny from all
+
+php_value post_max_size 52428800
+php_value upload_max_filesize 52428800
+php_value max_execution_time 300
+
+## Список IP через пробел, с которых доступ разрешен
+#Allow from 192.168.167.

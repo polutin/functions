@@ -6,5 +6,5 @@
 
 ## Навигация
 
-###[Сниппеты MYSQL](https://github.com/polutin/functions/tree/master/mysql "MYSQL")
-###[Сниппеты .HTACCESS](https://github.com/polutin/functions/tree/master/.htaccess ".HTACCESS")
+####[Сниппеты MYSQL](https://github.com/polutin/functions/tree/master/mysql "MYSQL")
+####[Сниппеты .HTACCESS](https://github.com/polutin/functions/tree/master/.htaccess ".HTACCESS")

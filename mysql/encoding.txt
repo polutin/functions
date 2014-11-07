@@ -1,0 +1,21 @@
+/////////////////////////////////////////////
+// ПОДКЛЮЧЕНИЕ К БД С УЧЕТОМ НУЖНОЙ КОДИРОВКИ
+
+<?
+  mysql_connect("localhost", "root", "") or die("MySQL сервер недоступен!".mysql_error());
+  mysql_select_db("honey102") or die("Нет соединения с БД".mysql_error());
+  mysql_query("SET NAMES 'utf8'");
+  mysql_query("SET character_set_client = utf8");
+  mysql_query("SET character_set_connection = utf8");
+  mysql_query("SET character_set_results = utf8");
+
+  header('Content-Type: text/html; charset=utf-8');
+?>
+
+//////////////////////////////////////
+// ПРЕФИКС ПРИ ЗАПРОСЕ СОЗДАНИя ТАБЛИЦ
+
+<?
+
+  mysql_query("
+   CREATE TABLE name (id int auto_increment primary key, ....) ENGINE=MyISAM CHARACTER SET=utf8;",$mysql);
